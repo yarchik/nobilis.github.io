@@ -1,0 +1,319 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.recommended-products {
+  padding: 79px 0 16px 0;
+  @media (max-width: $breakpoint-sm) {
+    padding: 10px 0 52px 0;
+    text-align: center;
+  }
+
+  &__carousel {
+    margin-top: 55px;
+    margin-bottom: 63px;
+    @media (max-width: $breakpoint-sm) {
+      margin-top: 16px;
+    }
+
+    .flickity-prev-next-button {
+      top: auto;
+      transform: none;
+      bottom: -63px;
+      @media (min-width: $breakpoint-lg) {
+        display: none;
+      }
+
+      &.previous {
+        left: calc(50% - 42px);
+      }
+
+      &.next {
+        right: calc(50% - 42px);
+      }
+    }
+
+
+  }
+
+
+  &__item {
+    width: calc(100% / 3);
+    padding: 0 10px;
+    @media (max-width: $breakpoint-lg) {
+      width: 50%;
+    }
+    @media (max-width: $breakpoint-sm) {
+      width: 100%;
+    }
+  }
+
+  .section {
+    &-heading {
+      margin-bottom: 10px;
+    }
+  }
+
+}
+
+
+.product-card {
+  padding: 94px 0 50px 0;
+  @media (max-width: $breakpoint-sm) {
+    padding: 19px 0 50px 0;
+  }
+
+  &__title, &__desc, & .btn {
+    @media (max-width: $breakpoint-lg) {
+      text-align: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__desc {
+    margin-bottom: 24px;
+    @media (max-width: $breakpoint-lg) {
+      text-align: center;
+    }
+  }
+
+  & .btn {
+    margin-bottom: 45px;
+  }
+
+  & .flickity-prev-next-button {
+
+    @media (min-width: $breakpoint-lg) {
+      display: none;
+
+    }
+  }
+
+  &__letters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: -45px;
+    @media (max-width: $breakpoint-lg) {
+      top: auto;
+      bottom: 0;
+      right: 40px;
+    }
+
+    & li {
+      & + li {
+        margin-top: 50px;
+        @media (max-width: $breakpoint-lg) {
+          margin-top: 15px;
+        }
+      }
+
+      & i {
+        @include fontSize(84, 260);
+
+        line-height: 1;
+        color: rgba(87, 87, 86, 0.05);
+      }
+    }
+  }
+}
+
+.product-detail {
+  margin-bottom: 40px;
+  @media (max-width: $breakpoint-lg) {
+    margin-bottom: 22px;
+  }
+
+  &__heading {
+    font-weight: bold;
+
+    @include fontSize(14, 16);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #000000;
+    padding: 10px 0;
+    border-bottom: 1px solid #000000;
+    margin-bottom: 20px;
+  }
+
+
+  & iframe {
+    width: 100%;
+  }
+
+  & ul {
+    li {
+      position: relative;
+      padding-left: 24px;
+
+      @include fontSize(12, 16);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 127%;
+      color: #575756;
+
+      &:before {
+        content: "";
+        position: absolute;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  & .notification {
+    & li {
+      margin-bottom: 5px;
+
+      &:before {
+        content: "";
+        left: 4px;
+        width: 4px;
+        height: 4px;
+        border-radius: 100%;
+        background: #575756;
+        top: 6px;
+        transform: rotate(45deg);
+      }
+    }
+
+  }
+
+  & .properties {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      grid-gap: 12px;
+    }
+
+    li {
+      letter-spacing: 0.03em;
+      text-transform: lowercase;
+
+      &:before {
+        content: "";
+        left: 0;
+        width: 12px;
+        height: 12px;
+        background: $accentColor;
+        top: 6px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+
+  .mejs-overlay-button {
+    background: rgba(238, 114, 3, 0.7);
+    height: 62px;
+    width: 62px;
+    border-radius: 100%;
+
+    &:after {
+      content: '';
+
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6.5px 0 6.5px 11px;
+      border-color: transparent transparent transparent $whiteColor;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+
+}
+
+.characteristic {
+  &-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0 10px;
+    padding: 8px 14px;
+
+    &:nth-child(odd) {
+      background: #F4F4F4;
+    }
+
+    &__label, &__value {
+      font-weight: normal;
+      @include fontSize(12, 14);
+      line-height: 1.4;
+
+      color: #575756;
+    }
+
+    &__label {
+
+    }
+
+    &__value {
+      text-align: center;
+    }
+  }
+}
+
+
+.carousel {
+  &-cell {
+    width: 100%;
+    height: 504px;
+    margin-right: 8px;
+    @media (max-width: $breakpoint-lg) {
+      height: 200px;
+    }
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  &-nav {
+    @media (max-width: $breakpoint-lg) {
+      display: none;
+    }
+
+    .carousel-cell {
+      height: 63px;
+      width: 63px;
+      border: 2px solid #D5D5D5;
+      padding: 5px;
+      @include transition(.3);
+
+      &.is-selected {
+        border-color: #EE7203;
+      }
+    }
+  }
+
+  &-main {
+    margin-bottom: 8px;
+    @media (max-width: $breakpoint-lg) {
+      *margin-bottom: 36px;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+
+}
+

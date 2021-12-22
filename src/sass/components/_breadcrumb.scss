@@ -1,0 +1,46 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.kama_breadcrumbs {
+  background-color: rgba(255, 255, 255, 1);
+  padding: 15px 0;
+  font-weight: normal;
+  @include fontSize(12, 16);
+  line-height: 150%;
+  color: #EE7203;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 12px 0 13px 0;
+  }
+
+  &__wrap {
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -50vw;
+      width: 200vw;
+      height: 1px;
+      background-color: #E9E9E9;
+    }
+  }
+
+  & a {
+    color: #000000;
+  }
+
+  & .kb {
+    &_sep {
+      color: #000;
+      padding: 0 16px;
+      @include fontSize(8, 11);
+      @media (max-width: $breakpoint-md) {
+        padding: 0 9px;
+      }
+    }
+
+    &_title {
+      color: $accentColor;
+    }
+  }
+}

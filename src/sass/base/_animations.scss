@@ -1,0 +1,208 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.wow {
+  visibility: visible !important
+}
+
+@keyframes show-image {
+  0%, 66.6% {
+    visibility: hidden
+  }
+
+  66.7%, to {
+    visibility: visible
+  }
+}
+
+
+.image {
+  &-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-size: 0;
+    line-height: 0
+  }
+
+  &-canvas {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 4;
+    visibility: hidden;
+    @media (max-width: $breakpoint-md) {
+      //visibility: visible;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      opacity: 0;
+      transition: all .5s cubic-bezier(.25, .46, .45, .94);
+    }
+
+    & img {
+      object-fit: cover;
+      display: inline-block;
+      max-width: 100%;
+      transition: transform 1s cubic-bezier(.25, .46, .45, .94);
+    }
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $primaryColor;
+    z-index: 5;
+    transform: scale(.05, 0);
+  }
+}
+
+
+.animated .image-canvas {
+  animation: show-image 1s linear;
+  animation-fill-mode: forwards;
+}
+
+.animated .image-overlay {
+  animation: overlay-top-to-left 1s cubic-bezier(.785, .135, .15, .86);
+}
+.animated:nth-child(even) .image-overlay {
+  animation: overlay-top-to-right 1s cubic-bezier(.785, .135, .15, .86);
+}
+@keyframes overlay-top-to-right {
+  0% {
+    transform: scale(.05, 0);
+    transform-origin: left top
+  }
+
+  33.3% {
+    transform: scaleX(.05);
+    transform-origin: left top
+  }
+
+  66.6% {
+    transform-origin: left center;
+    transform: scale(1)
+  }
+
+  66.7% {
+    transform-origin: right center;
+    transform: scale(1)
+  }
+
+  to {
+    transform-origin: right center;
+    transform: scaleX(0)
+  }
+}
+
+@keyframes overlay-top-to-left {
+  0% {
+    transform: scale(.05, 0);
+    transform-origin: right top
+  }
+
+  33.3% {
+    transform: scaleX(.05);
+    transform-origin: right top
+  }
+
+  66.6% {
+    transform-origin: right center;
+    transform: scale(1)
+  }
+
+  66.7% {
+    transform-origin: left center;
+    transform: scale(1)
+  }
+
+  to {
+    transform-origin: left center;
+    transform: scaleX(0)
+  }
+}
+
+
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+
+.fade-in {
+  animation: fade-in .35s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.animate-in {
+  animation: modalIn .7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-iteration-count: 1;
+}
+
+.animate-away {
+  animation: modalAway 1.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-iteration-count: 1;
+}
+
+@-webkit-keyframes modalIn {
+  0% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  0% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes modalAway {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+@keyframes modalAway {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeEffect{from{opacity:0}to{opacity:1}};

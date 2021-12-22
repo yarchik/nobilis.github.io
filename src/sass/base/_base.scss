@@ -1,0 +1,192 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.bg-text {
+  font-family: 'CalligraphiaTwo', serif;
+  font-style: normal;
+  font-weight: normal;
+  @include fontSize(197, 631);
+  line-height: 0.5;
+  text-align: center;
+  letter-spacing: 0.07em;
+
+  color: #FAFAFA;
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.body-grid {
+  width: 100%;
+  left: 0;
+  right: 0;
+  max-width: 1380px;
+  margin: auto;
+  z-index: 1;
+  pointer-events: none;
+  position: fixed;
+  height: 100%;
+  top: 0;
+
+  & span {
+    background-color: #DDDDDD;
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    z-index: 1;
+
+    &:nth-child(1) {
+      left: calc(16.666666% + 10px);
+      @media (max-width: $breakpoint-md) {
+        left: 15px;
+      }
+    }
+
+    &:nth-child(2) {
+      left: calc(50% - 1px);
+      @media (max-width: $breakpoint-md) {
+        display: none;
+      }
+    }
+
+    &:nth-child(3) {
+      right: calc(16.666666% + 10px);
+      @media (max-width: $breakpoint-md) {
+        right: 15px;
+      }
+    }
+  }
+}
+
+
+.carousel {
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  &.loadSlider {
+    opacity: 1;
+  }
+}
+
+.default-icon {
+  width: 100%;
+
+  & img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.--relative {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.overlap {
+  position: relative;
+  z-index: 3;
+}
+
+body {
+  /*
+    &.overflow-hidden {
+      overflow: hidden;
+      @media (min-width: $breakpoint-md) {
+        padding-right: 17px;
+
+      }
+    }*/
+}
+
+
+.full-height, body, html {
+  height: 100%;
+}
+
+.body-padding {
+  height: 194px;
+  @media (max-width: $breakpoint-md) {
+    height: 52px;
+  }
+}
+
+.section {
+  &-heading {
+    font-weight: bold;
+    @include fontSize(20, 54);
+    line-height: 1.25;
+    color: #251C10;
+
+    &__sub {
+      font-family: 'CalligraphiaTwo', serif;
+      font-weight: normal;
+      @include fontSize(20, 36);
+      letter-spacing: 0.07em;
+      color: #C19600;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      grid-gap: 0 13px;
+      margin-bottom: 0;
+    }
+
+    & span {
+      color: #C19600;
+    }
+  }
+
+  &-text {
+    @include fontSize(12, 18);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #575756;
+  }
+
+  &-wrap {
+    padding: 0 30px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1120px;
+    @media (max-width: $breakpoint-md) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+}
+
+.text-orange {
+  color: $accentColor;
+}
+
+.main-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.app-text {
+  @include fontSize(10, 14);
+  line-height: 1.7;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}

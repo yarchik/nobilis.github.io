@@ -1,0 +1,198 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  outline: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-overflow-scrolling: touch;
+
+  &-body {
+    //  position: absolute;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+    // right: 0;
+    //  top: 0;
+    //  bottom: 0;
+    // left: 0;
+    ///  overflow-y: hidden;
+  }
+
+  &-content {
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    padding: 60px 90px;
+    background: $whiteColor;
+    @media (max-width: $breakpoint-md) {
+      padding: 30px 20px;
+      max-width: calc(100% - 32px);
+      overflow: hidden;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -150px;
+      background: url(../img/birdModal.svg) no-repeat;
+      background-size: contain;
+      background-position: right;
+      height: 400px;
+      width: 580px;
+      z-index: 1;
+      @media (max-width: $breakpoint-md) {
+        height: 219px;
+        width: 314px;
+        left: auto;
+        right: 81px;
+        top: -21px;
+      }
+    }
+
+
+    &__title {
+      display: block;
+      color: $primaryColor;
+      @include fontSize(12, 24);
+      line-height: 1.2;
+      margin: 0 0 14px 0;
+      @media (max-width: $breakpoint-md) {
+        margin: 0 0 2px 0;
+      }
+    }
+
+    &__description {
+      font-weight: normal;
+      @include fontSize(12, 16);
+      line-height: 1.5;
+      color: $primaryColor;
+      margin-bottom: 50px;
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 18px;
+
+      }
+
+    }
+
+    &__close {
+      position: absolute;
+      right: 22px;
+      top: 22px;
+      height: 22px;
+      width: 22px;
+
+      & i {
+        font-size: 22px;
+        color: $primaryColor;
+        @include transition(.3);
+      }
+
+      &:hover {
+        & i {
+          color: $accentColor;
+        }
+      }
+
+      @media (max-width: $breakpoint-md) {
+        right: 15px;
+        top: 15px;
+      }
+    }
+
+
+  }
+
+  &-respond {
+    &__icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 36px auto;
+      background: $primaryColor;
+      border-radius: 100%;
+      @media (max-width: $breakpoint-md) {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 20px;
+      }
+
+      & i {
+        @include fontSize(18, 26);
+        color: $whiteColor;
+      }
+    }
+
+    &__title {
+      margin-bottom: 7px;
+      @include fontSize(12, 24);
+    }
+
+    &__text {
+      margin-bottom: 31px;
+      @include fontSize(10, 16);
+      @media (max-width: $breakpoint-md) {
+
+        margin-bottom: 18px;
+      }
+    }
+  }
+}
+
+.call-back {
+  &-form {
+    & .form-control {
+      margin-bottom: 42px;
+
+      &__input, &__textarea {
+        color: $primaryColor;
+      }
+
+      &__input, &__textarea {
+        border-bottom: 1px solid #002B4F;
+
+        &::-webkit-input-placeholder {
+          color: rgba(0, 43, 79, 0.34);
+        }
+
+        &::-moz-placeholder {
+          color: rgba(0, 43, 79, 0.34);
+        }
+
+        &:-ms-input-placeholder {
+          color: rgba(0, 43, 79, 0.34);
+        }
+      }
+
+      &__btn {
+        margin: 16px auto 0 auto;
+        display: block;
+        background: $primaryColor;
+        width: 100%;
+        max-width: 240px;
+      }
+    }
+  }
+
+  .wpcf7-response-output {
+    color: #002B4F;
+    font-size: 14px;
+  }
+}

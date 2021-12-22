@@ -1,0 +1,192 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.btn {
+  position: relative;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-family: Gilroy, sans-serif;
+
+  @media (max-width: $breakpoint-lg) {
+
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+
+  }
+
+
+  &-primary {
+    padding-left: 78px;
+
+    & .text {
+      display: block;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 1;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: $accentColor;
+
+
+      -moz-transition-property: color,-moz-transform;
+      -o-transition-property: color,-o-transform;
+      -webkit-transition-property: color,-webkit-transform;
+      transition-property: color,transform;
+      -moz-transition-duration: 0.4s;
+      -o-transition-duration: 0.4s;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      -moz-transition-timing-function: ease;
+      -o-transition-timing-function: ease;
+      -webkit-transition-timing-function: ease;
+      transition-timing-function: ease;
+    }
+
+    & .line {
+      width: 61px;
+      background-color: #ABABAB;
+
+      display: block;
+      position: absolute;
+
+      height: 1px;
+
+      left: 0;
+      top: 5px;
+      -moz-transition-property: width,opacity;
+      -o-transition-property: width,opacity;
+      -webkit-transition-property: width,opacity;
+      transition-property: width,opacity;
+      -moz-transition-duration: 0.4s;
+      -o-transition-duration: 0.4s;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      -moz-transition-timing-function: ease-out;
+      -o-transition-timing-function: ease-out;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+
+
+      -moz-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+
+
+      &:after {
+        content: '';
+        display: block;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: #cdcdcd;
+        margin-top: -1px;
+      }
+    }
+
+    &:hover {
+      border-color: $accentColor;
+      background: transparent;
+      color: $accentColor;
+
+      & .text {
+
+
+
+        -moz-transform: translate(-78px, 0);
+        -ms-transform: translate(-78px, 0);
+        -webkit-transform: translate(-78px, 0);
+        transform: translate(-78px, 0);
+      }
+
+      & .line {
+        width: 0;
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+      }
+    }
+  }
+
+  &-white {
+    background: $whiteColor;
+    color: $accentColor;
+    padding: 10px 42.5px;
+  }
+
+
+  &-download {
+    border-color: #EE7203;
+    padding: 10px 36.5px;
+    color: $accentColor;
+    @include fontSize(12, 18);
+    @media (max-width: $breakpoint-lg) {
+      padding: 13px 16.5px;
+    }
+
+    & i {
+      @include fontSize(12, 16);
+      margin-left: 8px;
+    }
+  }
+
+  &-more {
+
+    display: block;
+    width: 100%;
+
+    & .txt {
+      font-weight: 700;
+      @include fontSize(10, 12);
+      line-height: 134%;
+      letter-spacing: 0.245em;
+      color: $whiteColor;
+      background: $primaryColor;
+      padding: 24px 5px 23px 5px;
+      display: block;
+      width: calc(100% - 60px);
+      @media (max-width: 768px) {
+        padding: 11px 0 10px 0;
+        width: calc(100% - 32px);
+      }
+    }
+
+    & .triangle {
+      width: 60px;
+      background: #E8F0F8;
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      @media (max-width: 768px) {
+        width: 32px;
+      }
+
+      &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 12px 12px 0;
+        border-color: transparent #008BDD transparent transparent;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @media (max-width: 768px) {
+          border-width: 0 7px 7px 0;
+        }
+      }
+
+    }
+  }
+}
+

@@ -1,0 +1,73 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.s-banner {
+
+  margin-top: 190px;
+  @media (max-width: $breakpoint-md) {
+    margin-top: 0;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    min-height: 411px;
+    @media (min-width: $breakpoint-md) {
+      padding: 98px 0 151px 0;
+    }
+    @media (max-width: $breakpoint-md) {
+      padding: 115px 0 75px 0;
+      text-align: center;
+      min-height: 200px;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+    background: linear-gradient(90.16deg, rgba(0, 0, 0, 0.75) 0.16%, rgba(0, 0, 0, 0.58548) 47.37%, rgba(0, 0, 0, 0.441724) 66.8%, rgba(0, 0, 0, 0.208241) 96.17%, rgba(0, 0, 0, 0) 97.23%);
+    @media (min-width: $breakpoint-md) {
+
+    }
+
+    & img {
+      opacity: .9;
+    }
+  }
+
+  &__icon {
+    width: 88px;
+    margin: 0 auto 10px auto;
+    @media (max-width: $breakpoint-md) {
+      width: 44px;
+    }
+  }
+
+  &__title {
+    font-family: Palatino;
+    font-weight: normal;
+    @include fontSize(24, 74);
+    line-height: 1.1;
+    color: $whiteColor;
+  }
+
+  &__sub-title {
+    font-family: 'CalligraphiaTwo', serif;
+    font-weight: normal;
+    @include fontSize(20, 36);
+    line-height: 1;
+    letter-sacing: 0.07em;
+    color: #C19600;
+  }
+
+  &__text {
+    @media (min-width: $breakpoint-md) {
+      max-width: 60%;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.text {
+  &-right {
+    text-align: right;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-left {
+    text-align: left;
+  }
+}
+
+
+.--uppercase {
+  text-transform: uppercase;
+}
+
+
+h1, h2, h3, h4, h5 {
+  font-family: Palatino, serif;
+}
+
+
+.heading-1 {
+  @include fontSize(52, 90);
+  line-height: 1;
+}
+
+.heading-2 {
+  font-size: 52px;
+  line-height: 56px;
+  @media (max-width: $breakpoint-md) {
+    line-height: 1;
+  }
+}
+
+.heading-3 {
+  @include fontSize(24, 36);
+  line-height: 1;
+  @media (max-width: $breakpoint-md) {
+    line-height: 1.16;
+  }
+}
+
+.heading-4 {
+  @include fontSize(18, 24);
+  line-height: 1.2;
+}
+
+.heading-5 {
+  @include fontSize(16, 20);
+}
+
+.heading-6 {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.icon-whatsapp:before {
+  content: "\e910";
+}
+.icon-black-placeholder:before {
+  content: "\e906";
+}
+.icon-facebook2:before {
+  content: "\e90e";
+}
+.icon-instagram2:before {
+  content: "\e90f";
+}
+.icon-check:before {
+  content: "\e90d";
+}
+.icon-fast-forward:before {
+  content: "\e90a";
+}
+.icon-B:before {
+  content: "\e90b";
+}
+.icon-F:before {
+  content: "\e90c";
+}
+.icon-ar-left:before {
+  content: "\e900";
+}
+.icon-ar-right:before {
+  content: "\e901";
+}
+.icon-download:before {
+  content: "\e902";
+}
+.icon-email:before {
+  content: "\e903";
+}
+.icon-facebook:before {
+  content: "\e904";
+}
+.icon-instagram:before {
+  content: "\e905";
+}
+.icon-marker:before {
+  content: "\e906";
+}
+.icon-more:before {
+  content: "\e907";
+}
+.icon-phone:before {
+  content: "\e908";
+}
+.icon-right-arrow:before {
+  content: "\e909";
+}

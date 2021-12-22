@@ -1,0 +1,52 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.s-cta {
+  background: $accentColor;
+  padding: 61px 0 36px 0;
+  @media (max-width: $breakpoint-md) {
+    padding: 30px 0 43px 0;
+  }
+
+  &-form {
+    padding: 58px 8% 48px 8%;
+    margin-bottom: 100px;
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 24px;
+    }
+
+    &__btn {
+      margin-top: 16px;
+      @media (min-width: $breakpoint-md) {
+        // padding: 0 8%;
+      }
+    }
+
+  }
+
+  & .section {
+    &-heading {
+      font-weight: 600;
+      margin-bottom: 8px;
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 7px;
+      }
+    }
+
+    &-text {
+
+      margin-bottom: 60px;
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 30px;
+      }
+    }
+
+    &-heading, &-text {
+      color: $whiteColor;
+    }
+  }
+
+  & .btn {
+    margin-top: 8px;
+  }
+}
